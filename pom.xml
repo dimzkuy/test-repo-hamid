@@ -4,16 +4,43 @@
                              http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.example</groupId>
+  <!-- groupId diubah agar sesuai format GitHub Packages -->
+  <groupId>com.github.HamidKhaeruman</groupId>
   <artifactId>SimpleJavaCIProject</artifactId>
   <version>1.0-SNAPSHOT</version>
+
+  <name>SimpleJavaCIProject</name>
+  <description>CI/CD Maven project for MKEPL group</description>
+  <url>https://github.com/HamidKhaeruman/MKEPL_CICD_KELOMPOK1_S1SE0602</url>
+
+  <licenses>
+    <license>
+      <name>MIT License</name>
+      <url>https://opensource.org/licenses/MIT</url>
+    </license>
+  </licenses>
+
+  <developers>
+    <developer>
+      <id>HamidKhaeruman</id>
+      <name>Hamid Khaeruman</name>
+      <url>https://github.com/HamidKhaeruman</url>
+    </developer>
+  </developers>
+
+  <scm>
+    <url>https://github.com/HamidKhaeruman/MKEPL_CICD_KELOMPOK1_S1SE0602</url>
+    <connection>scm:git:git://github.com/HamidKhaeruman/MKEPL_CICD_KELOMPOK1_S1SE0602.git</connection>
+    <developerConnection>scm:git:ssh://github.com/HamidKhaeruman/MKEPL_CICD_KELOMPOK1_S1SE0602.git</developerConnection>
+    <tag>HEAD</tag>
+  </scm>
 
   <properties>
       <maven.compiler.source>17</maven.compiler.source>
       <maven.compiler.target>17</maven.compiler.target>
       <sonar.organization>HamidKhaeruman</sonar.organization>
       <sonar.host.url>http://localhost:9000/</sonar.host.url> 
-   </properties>
+  </properties>
 
   <dependencies>
     <!-- JUnit untuk pengujian unit -->
@@ -45,14 +72,21 @@
           </execution>
         </executions>
       </plugin>
+
+      <!-- Plugin untuk deploy ke GitHub Packages -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-deploy-plugin</artifactId>
+        <version>3.1.1</version>
+      </plugin>
     </plugins>
   </build>
 
   <distributionManagement>
-      <repository>
-         <id>github</id>
-         <name>MKEPL CI CD Kelompok 1 S1SE-06-02</name>
-         <url>https://maven.pkg.github.com/HamidKhaeruman/MKEPL_CICD_KELOMPOK1_S1SE0602</url>
-      </repository>
-   </distributionManagement>
+    <repository>
+      <id>github</id>
+      <name>MKEPL CI CD Kelompok 1 S1SE-06-02</name>
+      <url>https://maven.pkg.github.com/dimzkuy/test-repo-hamid</url>
+    </repository>
+  </distributionManagement>
 </project>
