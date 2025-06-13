@@ -1,0 +1,58 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.example</groupId>
+  <artifactId>SimpleJavaCIProject</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <properties>
+      <maven.compiler.source>17</maven.compiler.source>
+      <maven.compiler.target>17</maven.compiler.target>
+      <sonar.organization>HamidKhaeruman</sonar.organization>
+      <sonar.host.url>http://localhost:9000/</sonar.host.url> 
+   </properties>
+
+  <dependencies>
+    <!-- JUnit untuk pengujian unit -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.13.2</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <!-- Plugin untuk analisis statik kode (checkstyle) -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <version>3.3.0</version>
+        <configuration>
+          <configLocation>google_checks.xml</configLocation>
+          <failOnViolation>true</failOnViolation>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>verify</phase>
+            <goals>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+  <distributionManagement>
+      <repository>
+         <id>github</id>
+         <name>MKEPL CI CD Kelompok 1 S1SE-06-02</name>
+         <url>https://maven.pkg.github.com/HamidKhaeruman/MKEPL_CICD_KELOMPOK1_S1SE0602</url>
+      </repository>
+   </distributionManagement>
+</project>
